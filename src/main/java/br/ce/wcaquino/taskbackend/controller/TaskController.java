@@ -39,6 +39,7 @@ public class TaskController {
 		if(!DateUtils.isEqualOrFutureDate(todo.getDueDate())) {
 			throw new ValidationException("Due date must not be in past");
 		}
+
 		Task saved = todoRepo.save(todo);
 		return new ResponseEntity<Task>(saved, HttpStatus.CREATED);
 	}
